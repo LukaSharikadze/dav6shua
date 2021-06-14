@@ -69,7 +69,8 @@ class RegisterActivity : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     task ->
                 if (task.isSuccessful) {
-                    goToMain()
+                    goToReg()
+                    Toast.makeText(this, "User was created!", Toast.LENGTH_SHORT).show()
                 }
                 else{
                     Toast.makeText(this, "User was unable to create!", Toast.LENGTH_SHORT).show()
@@ -89,8 +90,8 @@ class RegisterActivity : AppCompatActivity() {
         return reg.matches(password)
     }
 
-    private fun goToMain(){
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun goToReg(){
+        startActivity(Intent(this, RegisterActivity::class.java))
         finish()
     }
 }
